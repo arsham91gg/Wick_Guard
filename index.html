@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP SECRET | ACCESS GRANTED</title>
+    <style>
+        /* استایل‌های اصلی برای فضای هکری */
+        body {
+            background-color: #000; /* مشکی مطلق */
+            color: #00ff41; /* سبز ماتریکسی */
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+            text-shadow: 0 0 5px #00ff41;
+        }
+
+        /* افکت برفره‌های سبز در پس‌زمینه (اختیاری برای جذابیت بیشتر) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 90%;
+            text-align: center;
+            z-index: 5;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            border-right: 3px solid #00ff41;
+            white-space: nowrap;
+            overflow: hidden;
+            width: fit-content;
+            margin: 0 auto 30px;
+            animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
+        }
+
+        .content-box {
+            border: 1px solid #00ff41;
+            padding: 20px;
+            background: rgba(0, 20, 0, 0.8);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+            text-align: right;
+            line-height: 1.8;
+        }
+
+        .post {
+            margin-bottom: 30px;
+            border-bottom: 1px dashed #00ff41;
+            padding-bottom: 15px;
+        }
+
+        .post:last-child {
+            border-bottom: none;
+        }
+
+        .post-title {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+
+        /* انیمیشن تایپ شدن */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: #00ff41; }
+        }
+
+        /* اسکرول‌بار خفن */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00ff41;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>SYSTEM ACCESS: GRANTED...</h1>
+
+        <div class="content-box">
+            <!-- گارد ویک -->
+            <div class="post">
+                <span class="post-title">[LOG_01]: ورود به
+قلمرو </span>
+                <p>اینجا فقط کسانی هستند که قدرت مدیریت و استراتژی رو درک می‌کنن. بقیه فقط تماشاچی هستن.</p>
+            </div>
+
+            <!-- اپلیکشین ایتا و تلگرام -->
+            <div class="post">
+                <span class="post-title">[LOG_02]: عملیات سایبری</span>
+                <p>در حال طراحی پیچیده‌ترین شبیه‌سازی‌ها در دنیای متن هستم. منتظر باشید...</p>
+            </div>
+
+            <!-- فعال در هر حوزه -->
+            <div class="post">
+                <span class="post-title">[LOG_03]: وضعیت سیستم</span>
+                <p>همه چیز تحت کنترل است. هیچ حفره امنیتی وجود ندارد. 🗿</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
