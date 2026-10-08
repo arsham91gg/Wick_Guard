@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TOP SECRET | ACCESS GRANTED</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #000;
+            color: #00ff41;
+            font-family: "Courier New", monospace;
+            text-shadow: 0 0 5px #00ff41;
+            overflow-x: hidden;
+        }
+
+        /* ================= پس‌زمینه ================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    rgba(18, 16, 16, 0) 50%,
+                    rgba(0, 0, 0, 0.3) 50%
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255, 0, 0, 0.04),
+                    rgba(0, 255, 0, 0.03),
+                    rgba(0, 0, 255, 0.04)
+                );
+
+            background-size: 100% 3px, 4px 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        /* ================= ذرات ================= */
+
+        .matrix {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.18;
+        }
+
+        .matrix span {
+            position: absolute;
+            top: -100px;
+            color: #00ff41;
+            font-size: 18px;
+            animation: fall linear infinite;
+        }
+
+        .matrix span:nth-child(1) {
+            left: 5%;
+            animation-duration: 7s;
+        }
+
+        .matrix span:nth-child(2) {
+            left: 15%;
+            animation-duration: 10s;
+        }
+
+        .matrix span:nth-child(3) {
+            left: 28%;
+            animation-duration: 6s;
+        }
+
+        .matrix span:nth-child(4) {
+            left: 40%;
+            animation-duration: 9s;
+        }
+
+        .matrix span:nth-child(5) {
+            left: 52%;
+            animation-duration: 7s;
+        }
+
+        .matrix span:nth-child(6) {
+            left: 65%;
+            animation-duration: 11s;
+        }
+
+        .matrix span:nth-child(7) {
+            left: 77%;
+            animation-duration: 8s;
+        }
+
+        .matrix span:nth-child(8) {
+            left: 90%;
+            animation-duration: 6s;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-100px);
+            }
+
+            to {
+                transform: translateY(110vh);
+            }
+        }
+
+        /* ================= صفحه ================= */
+
+        .container {
+            width: min(900px, 92%);
+            margin: auto;
+            padding: 35px 0 60px;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* ================= هدر ================= */
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .warning {
+            color: #ff003c;
+            text-shadow: 0 0 8px #ff003c;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 12px;
+            animation: danger 1s infinite alternate;
+        }
+
+        @keyframes danger {
+            from {
+                opacity: 0.45;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-size: clamp(1.6rem, 6vw, 3rem);
+            margin: 0 auto 12px;
+            width: fit-content;
+
+            border-right: 3px solid #00ff41;
+
+            white-space: nowrap;
+            overflow: hidden;
+
+            animation:
+                typing 3s steps(30, end),
+                blink .75s step-end infinite;
+        }
+
+        .subtitle {
+            color: #00b82e;
+            font-size: 14px;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* ================= منو ================= */
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 25px 0;
+        }
+
+        nav button {
+            background: #001500;
+            border: 1px solid #00ff41;
+            color: #00ff41;
+            padding: 10px 15px;
+            font-family: inherit;
+            cursor: pointer;
+            transition: .2s;
+            text-shadow: 0 0 5px #00ff41;
+        }
+
+        nav button:hover {
+            background: #00ff41;
+            color: #000;
+            box-shadow: 0 0 15px #00ff41;
+            text-shadow: none;
+        }
+
+        /* ================= پنل اصلی ================= */
+
+        .content-box {
+            border: 1px solid #00ff41;
+            padding: 20px;
+            background: rgba(0, 15, 0, 0.88);
+            box-shadow:
+                0 0 15px rgba(0, 255, 65, .2),
+                inset 0 0 25px rgba(0, 255, 65, .04);
+
+            line-height: 1.8;
+        }
+
+        /* ================= وضعیت سیستم ================= */
+
+        .system-status {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .status {
+            border: 1px solid #005c19;
+            padding: 15px;
+            text-align: center;
+            background: #001000;
+        }
+
+        .status-title {
+            display: block;
+            font-size: 12px;
+            color: #008c25;
+            margin-bottom: 7px;
+        }
+
+        .online {
+            color: #00ff41;
+        }
+
+        .secure {
+            color: #00ff41;
+        }
+
+        .warning-status {
+            color: #ffd000;
+            text-shadow: 0 0 5px #ffd000;
+        }
+
+        /* ================= لاگ‌ها ================= */
+
+        .post {
+            margin-bottom: 25px;
+            border-bottom: 1px dashed #006b1b;
+            padding-bottom: 20px;
+        }
+
+        .post:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .post-title {
+            display: block;
+            color: #00ff41;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-decoration: underline;
+        }
+
+        .post p {
+            margin: 0;
+            color: #00d936;
+        }
+
+        /* ================= پنل اطلاعات ================= */
+
+        .terminal {
+            margin-top: 25px;
+            border: 1px solid #00ff41;
+            background: #000;
+            padding: 15px;
+            min-height: 160px;
+            text-align: left;
+            direction: ltr;
+            box-shadow: 0 0 12px rgba(0,255,65,.15);
+        }
+
+        .terminal-title {
+            color: #00ff41;
+            border-bottom: 1px solid #004d14;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+        }
+
+        #terminalText {
+            white-space: pre-line;
+            color: #00d936;
+            line-height: 1.7;
+        }
+
+        /* ================= ساعت ================= */
+
+        .clock {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #00b82e;
+        }
+
+        /* ================= دکمه دسترسی ================= */
+
+        .access-button {
+            display: block;
+            width: 100%;
+            margin-top: 25px;
+
+            padding: 15px;
+
+            background: #001500;
+            border: 1px solid #00ff41;
+            color: #00ff41;
+
+            font-family: inherit;
+            font-size: 16px;
+
+            cursor: pointer;
+            transition: .25s;
+        }
+
+        .access-button:hover {
+            background: #00ff41;
+            color: #000;
+            box-shadow: 0 0 25px #00ff41;
+            text-shadow: none;
+        }
+
+        /* ================= فوتر ================= */
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #006b1b;
+            font-size: 12px;
+        }
+
+        /* ================= اسکرول ================= */
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00ff41;
+        }
+
+        /* ================= موبایل ================= */
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: 94%;
+                padding-top: 25px;
+            }
+
+            .system-status {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .content-box {
+                padding: 15px;
+            }
+
+            nav button {
+                flex: 1 1 40%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ماتریکس پس‌زمینه -->
+    <div class="matrix">
+        <span>010101101010101</span>
+        <span>101010011101010</span>
+        <span>110010101010101</span>
+        <span>010111001010111</span>
+        <span>101010101110010</span>
+        <span>001010101010111</span>
+        <span>111010010101010</span>
+        <span>010101110101001</span>
+    </div>
+
+
+    <main class="container">
+
+        <!-- هدر -->
+        <header>
+
+            <div class="warning">
+                ⚠ WARNING: RESTRICTED AREA ⚠
+            </div>
+
+            <h1>SYSTEM ACCESS: GRANTED...</h1>
+
+            <div class="subtitle">
+                [ TOP SECRET TERMINAL // ENCRYPTED CONNECTION ]
+            </div>
+
+        </header>
+
+
+        <!-- منو -->
+        <nav>
+
+            <button onclick="showLog()">
+                [ LOGS ]
+            </button>
+
+            <button onclick="showStatus()">
+                [ STATUS ]
+            </button>
+
+            <button onclick="showSystem()">
+                [ SYSTEM ]
+            </button>
+
+            <button onclick="clearTerminal()">
+                [ CLEAR ]
+            </button>
+
+        </nav>
+
+
+        <!-- پنل -->
+        <section class="content-box">
+
+            <!-- وضعیت -->
+            <div class="system-status">
+
+                <div class="status">
+                    <span class="status-title">
+                        CONNECTION
+                    </span>
+
+                    <span class="online">
+                        ● ONLINE
+                    </span>
+                </div>
+
+
+                <div class="status">
+                    <span class="status-title">
+                        SECURITY
+                    </span>
+
+                    <span class="secure">
+                        ● SECURE
+                    </span>
+                </div>
+
+
+                <div class="status">
+                    <span class="status-title">
+                        THREAT LEVEL
+                    </span>
+
+                    <span class="warning-status">
+                        ● LOW
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- لاگ ۱ -->
+            <div class="post">
+
+                <span class="post-title">
+                    [LOG_01]: ورود به قلمرو
+                </span>
+
+                <p>
+                    اینجا فقط کسانی هستند که قدرت مدیریت،
+                    استراتژی و تصمیم‌گیری رو درک می‌کنن.
+                    بقیه فقط تماشاچی هستن.
+                </p>
+
+            </div>
+
+
+            <!-- لاگ ۲ -->
+            <div class="post">
+
+                <span class="post-title">
+                    [LOG_02]: عملیات سایبری
+                </span>
+
+                <p>
+                    در حال طراحی پیچیده‌ترین شبیه‌سازی‌ها
+                    در دنیای متن هستم.
+                    سیستم آماده دریافت دستورات است...
+                </p>
+
+            </div>
+
+
+            <!-- لاگ ۳ -->
+            <div class="post">
+
+                <span class="post-title">
+                    [LOG_03]: وضعیت سیستم
+                </span>
+
+                <p>
+                    همه چیز تحت کنترل است.
+                    هیچ حفره امنیتی شناسایی نشده.
+                    🗿
+                </p>
+
+            </div>
+
+
+            <!-- ترمینال -->
+            <div class="terminal">
+
+                <div class="terminal-title">
+                    root@top-secret:~$
+                </div>
+
+                <div id="terminalText">
+                    Initializing secure connection...
+                    Loading encrypted files...
+                    Checking security protocols...
+                    Connection established.
+                    ACCESS GRANTED.
+                </div>
+
+            </div>
+
+
+            <!-- دکمه -->
+            <button class="access-button" onclick="accessSystem()">
+                [ INITIALIZE SYSTEM ]
+            </button>
+
+        </section>
+
+
+        <!-- ساعت -->
+        <div class="clock">
+            SYSTEM TIME:
+            <span id="clock">00:00:00</span>
+        </div>
+
+
+        <!-- فوتر -->
+        <footer>
+            © 2026 // TOP SECRET SYSTEM // ALL SYSTEMS OPERATIONAL
+        </footer>
+
+    </main>
+
+
+    <script>
+
+        /* ================= ساعت ================= */
+
+        function updateClock() {
+
+            const now = new Date();
+
+            const time =
+                now.getHours().toString().padStart(2, "0") +
+                ":" +
+                now.getMinutes().toString().padStart(2, "0") +
+                ":" +
+                now.getSeconds().toString().padStart(2, "0");
+
+            document.getElementById("clock").textContent = time;
+        }
+
+        updateClock();
+
+        setInterval(updateClock, 1000);
+
+
+        /* ================= ترمینال ================= */
+
+        const terminal =
+            document.getElementById("terminalText");
+
+
+        function showLog() {
+
+            terminal.textContent =
+`> ACCESSING SYSTEM LOGS...
+
+[LOG_001] USER CONNECTED
+[LOG_002] SECURITY CHECK PASSED
+[LOG_003] DATABASE ONLINE
+[LOG_004] NO UNAUTHORIZED ACCESS
+
+> END OF LOGS`;
+        }
+
+
+        function showStatus() {
+
+            terminal.textContent =
+`> SYSTEM STATUS
+
+SERVER      : ONLINE
+DATABASE    : ONLINE
+SECURITY    : ACTIVE
+FIREWALL    : ACTIVE
+ENCRYPTION  : ENABLED
+THREAT      : LOW
+
+> ALL SYSTEMS OPERATIONAL`;
+        }
+
+
+        function showSystem() {
+
+            terminal.textContent =
+`> SYSTEM INFORMATION
+
+OS          : TOP SECRET OS
+VERSION     : 2026.10
+ACCESS      : AUTHORIZED
+MODE        : SECURE
+NETWORK     : ENCRYPTED
+
+> SYSTEM READY`;
+        }
+
+
+        function clearTerminal() {
+
+            terminal.textContent =
+"> TERMINAL CLEARED...\n> WAITING FOR COMMAND...";
+        }
+
+
+        /* ================= دکمه اصلی ================= */
+
+        function accessSystem() {
+
+            terminal.textContent =
+`> INITIALIZING...
+
+[████████████████████] 100%
+
+> VERIFYING ACCESS...
+> IDENTITY VERIFIED.
+> SECURITY CHECK PASSED.
+> ENCRYPTED CHANNEL ESTABLISHED.
+
+>>> ACCESS GRANTED <<<
+
+WELCOME TO THE SYSTEM.`;
+        }
+
+    </script>
+
+</body>
+  </html>
