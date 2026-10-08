@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TOP SECRET</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background: #000;
+    color: #00ff41;
+    font-family: "Courier New", monospace;
+    text-shadow: 0 0 5px #00ff41;
+    padding: 30px 15px;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.box {
+    border: 1px solid #00ff41;
+    background: #001000;
+    padding: 25px;
+    text-align: right;
+    box-shadow: 0 0 20px rgba(0,255,65,.25);
+}
+
+.post {
+    padding: 20px 0;
+    border-bottom: 1px dashed #00ff41;
+}
+
+.post:last-child {
+    border-bottom: none;
+}
+
+.title {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 2;
+}
+
+button {
+    margin-top: 25px;
+    width: 100%;
+    padding: 15px;
+    background: #001000;
+    border: 1px solid #00ff41;
+    color: #00ff41;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+button:active {
+    background: #00ff41;
+    color: #000;
+}
+
+#message {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #006b1b;
+    text-align: left;
+    direction: ltr;
+    white-space: pre-line;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>SYSTEM ACCESS: GRANTED...</h1>
+
+    <div class="box">
+
+        <div class="post">
+            <span class="title">[LOG_01]: ورود به قلمرو</span>
+            <p>
+                اینجا فقط کسانی هستند که قدرت مدیریت
+                و استراتژی رو درک می‌کنن.
+                بقیه فقط تماشاچی هستن.
+            </p>
+        </div>
+
+        <div class="post">
+            <span class="title">[LOG_02]: عملیات سایبری</span>
+            <p>
+                در حال طراحی پیچیده‌ترین شبیه‌سازی‌ها
+                در دنیای متن هستم.
+            </p>
+        </div>
+
+        <div class="post">
+            <span class="title">[LOG_03]: وضعیت سیستم</span>
+            <p>
+                همه چیز تحت کنترل است.
+                هیچ حفره امنیتی وجود ندارد. 🗿
+            </p>
+        </div>
+
+        <button onclick="startSystem()">
+            [ INITIALIZE SYSTEM ]
+        </button>
+
+        <div id="message">
+            SYSTEM READY...
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function startSystem() {
+    document.getElementById("message").textContent =
+`> INITIALIZING SYSTEM...
+
+> CHECKING SECURITY...
+> SECURITY: OK
+
+> CONNECTION: ESTABLISHED
+
+>>> ACCESS GRANTED <<<`;
+}
+</script>
+
+</body>
+</html>
